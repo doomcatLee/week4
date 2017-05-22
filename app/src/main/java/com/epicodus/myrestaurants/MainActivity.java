@@ -12,7 +12,6 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private Button mFindRestaurantsButton;
-    public static final String TAG = MainActivity.class.getSimpleName();
     private EditText mLocationEditText;
 
     @Override
@@ -27,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
                // Toast.makeText(MainActivity.this, "You Clicked Me!", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent (MainActivity.this, RestaurantsActivity.class);
                 String location = mLocationEditText.getText().toString();
-                Log.d(TAG, location);
+                intent.putExtra("location",location);
                 startActivity(intent);
             }
         });
