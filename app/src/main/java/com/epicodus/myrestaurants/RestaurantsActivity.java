@@ -1,5 +1,6 @@
 package com.epicodus.myrestaurants;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,7 +15,7 @@ import android.widget.Toast;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class RestaurantsActivity extends AppCompatActivity {
+public class RestaurantsActivity extends Activity {
     @Bind(R.id.locationTextView) TextView mLocationTextView;
     @Bind(R.id.listView) ListView mListView;
     private String[] restaurants = new String[] {
@@ -43,7 +44,7 @@ public class RestaurantsActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String restaurant = ((TextView)view).getText().toString();
                 Toast.makeText(RestaurantsActivity.this, restaurant, Toast.LENGTH_LONG).show();
-
+                    Log.v("T", "onItemClickListener!");
 
                 }
         });
@@ -51,6 +52,7 @@ public class RestaurantsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
         mLocationTextView.setText("Here are all the restaurants near: " + location);
+        Log.d("RestaurantsActivity", "In the onCreate method!");
 
     }
 }
