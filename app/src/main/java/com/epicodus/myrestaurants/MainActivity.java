@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-        //TEXT VIEW
         Typeface sushiFont = Typeface.createFromAsset(getAssets(), "fonts/sushi-regular.ttf");
         mAppNameTextView.setTypeface(sushiFont);
 
@@ -35,7 +34,9 @@ public class MainActivity extends AppCompatActivity {
         mFindRestaurantsButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-               // Toast.makeText(MainActivity.this, "You Clicked Me!", Toast.LENGTH_LONG).show();
+
+
+                // Toast.makeText(MainActivity.this, "You Clicked Me!", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent (MainActivity.this, RestaurantsActivity.class);
                 String location = mLocationEditText.getText().toString();
                 intent.putExtra("location",location);
