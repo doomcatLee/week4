@@ -1,31 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.epicodus.myrestaurants.MainActivity">
+    tools:context="com.epicodus.myrestaurants.MainActivity"
+    android:background="@color/colorDivider">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/background"
+        android:id="@+id/imageView"
+        android:scaleType="centerCrop"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="Find Restaurants"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/findRestaurantsButton"
+        android:fontFamily="sans-serif"
+        android:textSize="24sp"
+        android:lineSpacingExtra="8sp"
+        android:background="@android:color/holo_red_light"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="My Restaurants"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="31dp"
         android:textStyle="normal|bold"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+        android:textColor="@color/colorTextIcons"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
-    <Button
-        android:text="Find Restaurants"
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="44dp"
-        android:id="@+id/button"
-        android:fontFamily="sans-serif"
-        android:textSize="24sp"
-        android:lineSpacingExtra="8sp" />
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_marginBottom="62dp"
+        android:id="@+id/locationEditText"
+        android:textColor="@android:color/background_dark"
+        android:textSize="30sp"
+        android:textStyle="normal|bold"
+        android:hint="Enter Zip Code"
+        android:background="@color/colorDivider"
+        android:layout_above="@+id/findRestaurantsButton"
+        android:layout_centerHorizontal="true" />
+
+
 </RelativeLayout>
