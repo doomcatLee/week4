@@ -5,17 +5,16 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.epicodus.myrestaurants.MainActivity"
-    android:background="@color/colorDivider">
+    tools:context="com.epicodus.myrestaurants.MainActivity">
 
     <ImageView
         android:layout_width="wrap_content"
+        app:srcCompat="@drawable/background3"
+        android:id="@+id/imageView2"
         android:layout_height="match_parent"
-        app:srcCompat="@drawable/background2"
-        android:id="@+id/imageView"
+        android:cropToPadding="false"
         android:scaleType="centerCrop"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <Button
@@ -29,34 +28,32 @@
         android:background="@android:color/holo_red_light"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_marginBottom="62dp"
-        android:id="@+id/locationEditText"
-        android:textColor="@android:color/background_dark"
-        android:textSize="24sp"
-        android:textStyle="normal|bold"
-        android:hint="Enter Zip Code"
-        android:background="@color/colorDivider"
-        android:layout_above="@+id/findRestaurantsButton"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="@color/colorSecondaryText" />
 
     <TextView
         android:id="@+id/appNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="My Restaurants"
-        android:layout_marginTop="34dp"
-        android:textStyle="normal|bold"
-        android:textSize="50sp"
-        android:textColor="@color/colorDivider"
+        android:layout_marginTop="52dp"
+        android:textAppearance="@android:style/TextAppearance.Material"
+        android:textSize="36sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/locationEditText"
+        android:text="Enter Zip Code"
+        android:layout_marginBottom="51dp"
+        android:singleLine="true"
+        android:layout_above="@+id/findRestaurantsButton"
+        android:layout_centerHorizontal="true" />
+
 
 
 </RelativeLayout>
