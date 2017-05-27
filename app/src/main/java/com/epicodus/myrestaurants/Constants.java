@@ -1,5 +1,7 @@
 package com.epicodus.myrestaurants;
 
+import com.epicodus.myrestaurants.BuildConfig;
+
 /**
  * Created by macbook on 5/26/17.
  */
