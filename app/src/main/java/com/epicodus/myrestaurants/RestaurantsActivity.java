@@ -16,6 +16,8 @@ import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
+import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
@@ -57,8 +59,10 @@ public class RestaurantsActivity extends Activity {
                 public void run() {
                      mAdapter = new RestaurantListAdapter(RestaurantsActivity
                             .this, mRestaurants);
+                    AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(mAdapter);
+                    alphaAdapter.setDuration(3000);
 
-                    mRecyclerView.setAdapter(mAdapter);
+                    mRecyclerView.setAdapter(new SlideInBottomAnimationAdapter(alphaAdapter));
                     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager
                             (RestaurantsActivity.this);
                     mRecyclerView.setLayoutManager(layoutManager);
