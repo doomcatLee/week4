@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyResPaired.iml" filepath="$PROJECT_DIR$/MyResPaired.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myRestaurants_customArrayAdapter.iml" filepath="$PROJECT_DIR$/myRestaurants_customArrayAdapter.iml" />
     </modules>
   </component>
 </project>
