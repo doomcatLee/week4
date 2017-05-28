@@ -60,7 +60,7 @@ public class RestaurantsActivity extends Activity {
                      mAdapter = new RestaurantListAdapter(RestaurantsActivity
                             .this, mRestaurants);
                     AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(mAdapter);
-                    alphaAdapter.setDuration(3000);
+                    alphaAdapter.setDuration(1000);
 
                     mRecyclerView.setAdapter(new SlideInBottomAnimationAdapter(alphaAdapter));
                     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager

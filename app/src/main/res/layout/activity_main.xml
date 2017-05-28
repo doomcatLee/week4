@@ -33,12 +33,13 @@
         android:id="@+id/appNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="My Restaurants"
-        android:layout_marginTop="52dp"
-        android:textAppearance="@android:style/TextAppearance.Material"
-        android:textSize="36sp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="52dp"
+        android:text="My Restaurants"
+        android:textAppearance="@android:style/TextAppearance.Material"
+        android:textColor="@color/cardview_dark_background"
+        android:textSize="36sp"/>
 
     <EditText
         android:id="@+id/locationEditText"
