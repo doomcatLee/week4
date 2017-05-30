@@ -38,7 +38,7 @@ public class MainActivity extends Activity {
 
 
                 // Toast.makeText(MainActivity.this, "You Clicked Me!", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent (MainActivity.this, RestaurantsActivity.class);
+                Intent intent = new Intent (MainActivity.this, RestaurantListActivity.class);
                 String location = mLocationEditText.getText().toString();
                 intent.putExtra("location",location);
                 startActivity(intent);
