@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 
 import com.epicodus.myrestaurants.UI.LoginActvity;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,7 +31,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
-
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
     String msg = "Android cycle: ";
 
     @Bind(R.id.findRestaurantsButton) Button mFindRestaurantsButton;
@@ -42,6 +45,18 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        mAuth=FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    getSupportActionBar().setTitle("Welcome, " + user.getDisplayName() + "!");
+                } else {
+
+                }
+            }
+        };
         mSavedRestaurantsButton.setOnClickListener(this);
 
         mFindRestaurantsButton.setOnClickListener(this);
@@ -89,7 +104,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d(msg, "The onStart() event. About to visible");
+        mAuth.addAuthStateListener(mAuthListener);
+
     }
     @Override
     protected void onResume() {
@@ -104,6 +120,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d(msg, "The onStop() event, when activity is not visible");
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
     }
 }
