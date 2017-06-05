@@ -1,10 +1,12 @@
 package com.epicodus.myrestaurants;
 
 import android.app.Activity;
-import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.epicodus.myrestaurants.adapters.RestaurantListAdapter;
@@ -23,6 +25,8 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class RestaurantListActivity extends Activity {
+    private SharedPreferences mSharedPreferences;
+    private String mRecentAddress;
     @Bind(R.id.locationTextView) TextView mLocationTextView;
     public ArrayList<Restaurant> mRestaurants = new ArrayList<>();
 
@@ -38,10 +42,15 @@ public class RestaurantListActivity extends Activity {
         setContentView(R.layout.activity_restaurants);
 
         ButterKnife.bind(this);
-
-        Intent intent = getIntent();
-        String location = intent.getStringExtra("location");
-        getRestaurants(location);
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
+        Log.d("Shared Pref Location", mRecentAddress);
+        if (mRecentAddress != null) {
+            getRestaurants(mRecentAddress);
+        }
+//        Intent intent = getIntent();
+//        String location = intent.getStringExtra("location");
+//        getRestaurants(location);
     }
 
     private void getRestaurants (String location){
