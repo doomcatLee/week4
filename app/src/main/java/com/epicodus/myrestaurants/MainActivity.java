@@ -12,26 +12,31 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends Activity implements View.OnClickListener {
-    private SharedPreferences mSharedPreferences;
-    private SharedPreferences.Editor mEditor;
+
     String msg = "Android cycle: ";
 
     @Bind(R.id.findRestaurantsButton) Button mFindRestaurantsButton;
-    @Bind(R.id.locationEditText) EditText mLocationEditText;
     @Bind(R.id.appNameTextView) TextView mAppNameTextView;
+    @Bind(R.id.savedRestaurantsButton) Button mSavedRestaurantsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d(msg, "The onCreate() event");
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        mEditor = mSharedPreferences.edit();
         ButterKnife.bind(this);
+        mSavedRestaurantsButton.setOnClickListener(this);
+
         mFindRestaurantsButton.setOnClickListener(this);
 
         Typeface sushiFont = Typeface.createFromAsset(getAssets(), "fonts/CaviarDreams.ttf");
@@ -40,17 +45,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if (v == mFindRestaurantsButton) {
-            String location = mLocationEditText.getText().toString();
-            if(!(location).equals("")) {
-                addToSharedPreferences(location);
-            }
             Intent intent = new Intent(MainActivity.this, RestaurantListActivity.class);
             startActivity(intent);
         }
-    }
-
-    private void addToSharedPreferences(String location) {
-        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
+        if (v == mSavedRestaurantsButton){
+            Intent intent = new Intent (MainActivity.this, SavedRestaurantListActivity.class);
+            startActivity(intent);
+        }
     }
 
     @Override
@@ -73,11 +74,4 @@ public class MainActivity extends Activity implements View.OnClickListener {
         super.onStop();
         Log.d(msg, "The onStop() event, when activity is not visible");
     }
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        Log.d(msg, "Before activity is destroyed");
-    }
-
-
 }
