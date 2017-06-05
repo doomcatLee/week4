@@ -27,7 +27,7 @@
         <activity android:name=".UI.RestaurantDetailActivity" />
         <activity android:name=".SavedRestaurantListActivity" />
         <activity android:name=".UI.CreateAccountActivity" />
-        <activity android:name=".UI.LoginActvity">
+        <activity android:name=".UI.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />\
                 <category android:name="android.intent.category.LAUNCHER" />
