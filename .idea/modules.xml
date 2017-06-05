@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MyResPaired.iml" filepath="$PROJECT_DIR$/MyResPaired.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MyRestaurants.iml" filepath="$PROJECT_DIR$/MyRestaurants.iml" />
       <module fileurl="file://$PROJECT_DIR$/MyRestaurants.iml" filepath="$PROJECT_DIR$/MyRestaurants.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/myRestaurants_customArrayAdapter.iml" filepath="$PROJECT_DIR$/myRestaurants_customArrayAdapter.iml" />
     </modules>
   </component>
 </project>
