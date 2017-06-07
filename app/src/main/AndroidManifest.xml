@@ -11,21 +11,21 @@
         android:supportsRtl="true"
         android:theme="@style/MyAppTheme"
         >
-        <activity android:name=".MainActivity"
+        <activity android:name=".UI.MainActivity"
            >
 
         </activity>
         <activity
-            android:name=".RestaurantListActivity"
-            android:parentActivityName=".MainActivity">
+            android:name=".UI.RestaurantListActivity"
+            android:parentActivityName=".UI.MainActivity">
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.myrestaurants.MainActivity">
+                android:value="com.epicodus.myrestaurants.UI.MainActivity">
                 </meta-data>
         </activity>
         <activity android:name=".UI.RestaurantDetailActivity" />
-        <activity android:name=".SavedRestaurantListActivity" />
+        <activity android:name=".UI.SavedRestaurantListActivity" />
         <activity android:name=".UI.CreateAccountActivity" />
         <activity android:name=".UI.LoginActivity">
             <intent-filter>

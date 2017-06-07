@@ -1,4 +1,4 @@
-package com.epicodus.myrestaurants;
+package com.epicodus.myrestaurants.UI;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
-import com.epicodus.myrestaurants.UI.LoginActivity;
+import com.epicodus.myrestaurants.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
