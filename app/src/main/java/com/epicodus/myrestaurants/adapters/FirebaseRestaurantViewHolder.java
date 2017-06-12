@@ -2,6 +2,7 @@ package com.epicodus.myrestaurants.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -32,6 +33,8 @@ public class FirebaseRestaurantViewHolder extends RecyclerView.ViewHolder implem
     private static final int MAX_WIDTH = 200;
     private static final int MAX_HEIGHT = 200;
 
+    public ImageView mRestaurantImageView;
+
     View mView;
     Context mContext;
 
@@ -39,20 +42,19 @@ public class FirebaseRestaurantViewHolder extends RecyclerView.ViewHolder implem
         super(itemView);
         mView = itemView;
         mContext = itemView.getContext();
-        itemView.setOnClickListener(this);
     }
 
     public void bindRestaurant(Restaurant restaurant) {
-        ImageView restaurantImageView = (ImageView) mView.findViewById(R.id.restaurantImageView);
         TextView nameTextView = (TextView) mView.findViewById(R.id.restaurantNameTextView);
         TextView categoryTextView = (TextView) mView.findViewById(R.id.categoryTextView);
         TextView ratingTextView = (TextView) mView.findViewById(R.id.ratingTextView);
+        mRestaurantImageView = (ImageView) mView.findViewById(R.id.restaurantImageView);
 
         Picasso.with(mContext)
                 .load(restaurant.getImageUrl())
                 .resize(MAX_WIDTH, MAX_HEIGHT)
                 .centerCrop()
-                .into(restaurantImageView);
+                .into(mRestaurantImageView);
 
         nameTextView.setText(restaurant.getName());
         categoryTextView.setText(restaurant.getCategories().get(0));

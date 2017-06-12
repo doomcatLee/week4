@@ -1,35 +1,35 @@
 {
   "project_info": {
-    "project_number": "80202993166",
-    "firebase_url": "https://restaurantthing-bccb2.firebaseio.com",
-    "project_id": "restaurantthing-bccb2",
-    "storage_bucket": "restaurantthing-bccb2.appspot.com"
+    "project_number": "609415109896",
+    "firebase_url": "https://myrestaurants-b7d9e.firebaseio.com",
+    "project_id": "myrestaurants-b7d9e",
+    "storage_bucket": "myrestaurants-b7d9e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:80202993166:android:dff6c1b29d00d12f",
+        "mobilesdk_app_id": "1:609415109896:android:dff6c1b29d00d12f",
         "android_client_info": {
           "package_name": "com.epicodus.myrestaurants"
         }
       },
       "oauth_client": [
         {
-          "client_id": "80202993166-dc1v19nt32nb45okqini06marrf7gpug.apps.googleusercontent.com",
+          "client_id": "609415109896-4q6p8ja53auqlht2dcfj0l527dkinnpf.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.epicodus.myrestaurants",
-            "certificate_hash": "e6536c315e8487f1a2809d7bae47812e3c8c1794"
+            "certificate_hash": "168f5f4fa29ac6696c99df38cbf7aa2bded0ea21"
           }
         },
         {
-          "client_id": "80202993166-3bsggagbvi99lbvhpctg4lu264j8up8a.apps.googleusercontent.com",
+          "client_id": "609415109896-qp4hbb5dug15lht5r39hnu50qif8jv7i.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDISUlw51ZDeXmggkk_CSuuRVRQvplmMUY"
+          "current_key": "AIzaSyDCBuEprAfaMAY9AHP-sgvd18Prlb7ZMr8"
         }
       ],
       "services": {
@@ -40,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "80202993166-3bsggagbvi99lbvhpctg4lu264j8up8a.apps.googleusercontent.com",
+              "client_id": "609415109896-qp4hbb5dug15lht5r39hnu50qif8jv7i.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
