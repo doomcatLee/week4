@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -106,6 +107,7 @@ public class FirebaseRestaurantListAdapter extends FirebaseRecyclerAdapter<Resta
     public boolean onItemMove(int fromPosition, int toPosition){
         Collections.swap(mRestaurants, fromPosition, toPosition);
         notifyItemMoved(fromPosition, toPosition);
+        Log.d("ItemMove", "Method triggerd");
         return false;
     }
 

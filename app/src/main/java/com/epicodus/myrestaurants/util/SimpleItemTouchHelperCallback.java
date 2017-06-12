@@ -3,9 +3,6 @@ package com.epicodus.myrestaurants.util;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 
-
-import static android.support.v7.widget.helper.ItemTouchHelper.Callback.makeMovementFlags;
-
 /**
  * Created by Guest on 6/12/17.
  */

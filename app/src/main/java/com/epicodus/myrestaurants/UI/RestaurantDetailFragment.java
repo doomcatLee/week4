@@ -21,6 +21,8 @@ import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -37,11 +39,15 @@ public class RestaurantDetailFragment extends Fragment implements View.OnClickLi
     @Bind(R.id.saveRestaurantButton) TextView mSaveRestaurantButton;
 
     private Restaurant mRestaurant;
+    private ArrayList<Restaurant> mRestaurants;
+    private int mPosition;
 
-    public static RestaurantDetailFragment newInstance(Restaurant restaurant) {
+    public static RestaurantDetailFragment newInstance(ArrayList<Restaurant> restaurant, Integer position) {
         RestaurantDetailFragment restaurantDetailFragment = new RestaurantDetailFragment();
         Bundle args = new Bundle();
         args.putParcelable("restaurant", Parcels.wrap(restaurant));
+        args.putParcelable("position", Parcels.wrap(position));
+
         restaurantDetailFragment.setArguments(args);
         return restaurantDetailFragment;
     }
@@ -49,7 +55,9 @@ public class RestaurantDetailFragment extends Fragment implements View.OnClickLi
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mRestaurant = Parcels.unwrap(getArguments().getParcelable("restaurant"));
+        mRestaurants = Parcels.unwrap(getArguments().getParcelable("restaurant"));
+        mPosition = getArguments().getInt("position");
+        mRestaurant = mRestaurants.get(mPosition);
     }
 
     @Override

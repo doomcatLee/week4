@@ -2,6 +2,9 @@ package com.epicodus.myrestaurants.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,6 +15,7 @@ import android.widget.TextView;
 
 import com.epicodus.myrestaurants.R;
 import com.epicodus.myrestaurants.UI.RestaurantDetailActivity;
+import com.epicodus.myrestaurants.UI.RestaurantDetailFragment;
 import com.epicodus.myrestaurants.models.Restaurant;
 import com.squareup.picasso.Picasso;
 
@@ -42,12 +46,12 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
 
 
     public class RestaurantViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        @Bind(R.id.restaurantImageView)
-        ImageView mRestaurantImageView;
-        @Bind(R.id.restaurantNameTextView)
-        TextView mNameTextView;
+        @Bind(R.id.restaurantImageView) ImageView mRestaurantImageView;
+        @Bind(R.id.restaurantNameTextView) TextView mNameTextView;
         @Bind(R.id.categoryTextView) TextView mCategoryTextView;
         @Bind(R.id.ratingTextView) TextView mRatingTextView;
+
+        private int mOrientation;
 
         private Context mContext;
 
@@ -56,6 +60,10 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
             itemView.setOnClickListener(this);
+            mOrientation = itemView.getResources().getConfiguration().orientation;
+            if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+                createDetailFragment(0);
+            }
         }
 
         public void bindRestaurant(Restaurant restaurant) {
@@ -93,6 +101,13 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
     @Override
     public int getItemCount() {
         return mRestaurants.size();
+    }
+
+    private void createDetailFragment(int position){
+        RestaurantDetailFragment detailFragment = RestaurantDetailFragment.newInstance(mRestaurants, position);
+        FragmentTransaction ft = ((FragmentActivity)mContext).getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.restaurantDetailContainer, detailFragment);
+        ft.commit();
     }
 
 
